@@ -15,13 +15,6 @@ uniform mat4 model;
 out vec3 vs_frag_pos;
 out vec3 vs_normal;
 
-mat4 shadowMatrixBias = mat4(
-  vec4(0.5f, 0.0f, 0.0f, 0.0f),
-  vec4(0.0f, 0.5f, 0.0f, 0.0f),
-  vec4(0.0f, 0.0f, 0.5f, 0.0f),
-  vec4(0.5f, 0.5f, 0.5f, 1.0f)
-);
-
 void main()
 {
     gl_Position = renderMatrices.projection * renderMatrices.view * model * vec4(in_position, 1.0f);

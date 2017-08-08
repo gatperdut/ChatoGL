@@ -15,7 +15,6 @@ RM := rm -rf
 -include src/loader/subdir.mk
 -include src/light/subdir.mk
 -include src/subdir.mk
--include resource/subdir.mk
 -include subdir.mk
 -include objects.mk
 

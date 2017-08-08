@@ -7,13 +7,15 @@
 
 #include "loader/mesh.h"
 
-Mesh::Mesh(aiMesh* mMesh) {
+Mesh::Mesh(aiMesh* mMesh, aiMaterial* mMaterial) {
+	this->mMaterial = mMaterial;
 	this->mMesh = mMesh;
 
 	fillVertices();
 	fillIndices();
 
 	setup();
+	materialSetup();
 }
 
 Mesh::~Mesh() {
@@ -78,14 +80,24 @@ void Mesh::setup() {
 	glBindVertexArray(0);
 }
 
+void Mesh::materialSetup() {
+	aiColor3D diffuse;
+	mMaterial->Get(AI_MATKEY_COLOR_DIFFUSE, diffuse);
+	material.diffuse = glm::vec4(diffuse.r, diffuse.g, diffuse.b, 1.0);
+	glCreateBuffers(1, &materialUBO);
+	glBindBufferBase(GL_UNIFORM_BUFFER, 0, materialUBO);
+	glNamedBufferStorage(materialUBO, sizeof(Material), &material, GL_DYNAMIC_STORAGE_BIT);
+}
+
 void Mesh::draw(ShaderProgram* shaderProgram) {
 	glBindVertexArray(VAO);
 
 	glm::mat4 modelMatrix;
 	glUniformMatrix4fv(glGetUniformLocation(shaderProgram->id, "model"), 1, GL_FALSE, glm::value_ptr(modelMatrix));
 
+	glBindBufferBase(GL_UNIFORM_BUFFER, 0, materialUBO);
 	// not needed for shadow shader
-	glUniform1i(glGetUniformLocation(shaderProgram->id, "materialIndex"), mMesh->mMaterialIndex);
+	//glUniform1i(glGetUniformLocation(shaderProgram->id, "materialIndex"), mMesh->mMaterialIndex);
 
 	glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
 }

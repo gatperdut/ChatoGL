@@ -62,7 +62,8 @@ int main() {
   lightManager->directionalLightAdd(glm::vec3(3.0f, 3.0f, 0.0f), 0.7);
 
   //modelManager->load("resource/cube.obj");
-  modelManager->load("resource/bowling.blend");
+  modelManager->load("resource/bowlingpin/bowlingpin.blend");
+  modelManager->load("resource/table/table.blend");
 
   // io
   Keyboard keyboard(camera);

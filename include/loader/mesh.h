@@ -10,6 +10,7 @@
 #include <vector>
 
 #include "loader/vertex.h"
+#include "loader/material.h"
 #include "shader/shader_program.h"
 
 class Mesh {
@@ -18,17 +19,21 @@ private:
 	std::vector<unsigned int> indices;
 
 	aiMesh* mMesh;
+	aiMaterial* mMaterial;
+	Material material;
 
 	void fillVertices();
 	void fillIndices();
+	void materialSetup();
 
+	GLuint materialUBO;
 	unsigned int VBO;
 	unsigned int EBO;
 
 	void setup();
 
 public:
-	Mesh(aiMesh* mMesh);
+	Mesh(aiMesh* mMesh, aiMaterial* mMaterial);
 	~Mesh();
 
 	void draw(ShaderProgram* shaderProgram);

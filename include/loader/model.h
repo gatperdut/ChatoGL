@@ -19,10 +19,6 @@ private:
 
 	void meshesSetup(const aiScene* scene);
 
-	void materialsSetup(const aiScene* scene);
-	void materialsStorage();
-	void materialsData();
-
 	std::vector<Material> materials;
 
 public:

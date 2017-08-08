@@ -2,12 +2,6 @@
 
 #extension GL_ARB_bindless_texture : require
 
-uniform int materialIndex;
-
-struct Material {
-	vec4 diffuse;
-};
-
 struct Attenuation {
   float constant;
   float linear;
@@ -40,9 +34,9 @@ struct SpotLight {
 };
 
 
-layout (std430, binding = 0) buffer Materials {
-  Material materials[];
-};
+layout (std140, binding = 0) uniform Material {
+  vec4 diffuse;
+} material;
 
 layout (std430, binding = 1) buffer DirectionalLights {
   DirectionalLight directionalLights[];
@@ -153,7 +147,7 @@ void main() {
 
   color = min(
     //vec4(0.5, 0.5, 0.5, 1.0) * vec4(diffuse, 1.0) + vec4(specular, 1.0),
-    materials[materialIndex].diffuse * vec4(diffuse, 1.0) + vec4(specular, 1.0),
+    material.diffuse * vec4(diffuse, 1.0) + vec4(specular, 1.0),
     vec4(1.0)
   );
 
