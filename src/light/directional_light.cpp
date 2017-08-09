@@ -22,12 +22,10 @@ DirectionalLight::DirectionalLight(glm::vec3 direction, float intensity) {
   data.direction = direction;
   data.intensity = intensity;
   data.shininess = 32;
-  //data.fragPosLightCoords = glm::vec4(0.0, 0.0, 0.0, 1.0);
 
   data.projectionMatrix = glm::ortho(-20.0f, 20.0f, -20.0f, 20.0f, 1.0f, 100.0f);
-  data.viewMatrix = glm::lookAt(data.direction, glm::vec3(0.0f), glm::vec3(0.0f, 1.0, 0.0));
+  data.viewMatrix = glm::lookAt(data.direction, glm::vec3(-2.0f), glm::vec3(0.0f, 1.0, 0.0));
 
-  //glUniformMatrix4fv(glGetUniformLocation(shaderProgram->id, "lightSpaceMatrixNoBias"), 1, GL_FALSE, glm::value_ptr(lightSpaceMatrixNoBias));
   shadowTextureStorage();
 
   shadowTextureSampler();

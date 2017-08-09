@@ -36,7 +36,7 @@ int main() {
   }
   std::cout << "OpenGL version " << glGetString(GL_VERSION) << std::endl;
 
-  camera = new cam::Camera(glm::vec3(0.0f, 1.0f, 7.0f), w, h);
+  camera = new cam::Camera(glm::vec3(0.0f, 6.0f, 7.0f), w, h);
 
   // shaders
   shaderManager = new ShaderManager();
@@ -59,11 +59,11 @@ int main() {
     "resource/terrain.jpg"
   };
 
-  lightManager->directionalLightAdd(glm::vec3(3.0f, 3.0f, 0.0f), 0.7);
+  lightManager->directionalLightAdd(glm::vec3(0.1f, 7.0f, 1.0f), 0.7);
 
-  //modelManager->load("resource/cube.obj");
-  modelManager->load("resource/bowlingpin/bowlingpin.blend");
-  modelManager->load("resource/table/table.blend");
+  modelManager->load("resource/bowlingpin/bowlingpin.obj", glm::vec3(0.0f, 2.0f, 0.0));
+  //modelManager->load("resource/table/table.blend", glm::vec3(0.0f, 0.0f, 0.0f));
+  modelManager->load("resource/cube/cube.obj", glm::vec3(0.0f, 0.0f, 0.0f));
 
   // io
   Keyboard keyboard(camera);

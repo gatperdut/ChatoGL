@@ -6,6 +6,7 @@
 
 // GLEW
 #include <GL/glew.h>
+#include <glm/glm.hpp>
 
 // ChatoGL
 #include "loader/model.h"
@@ -20,7 +21,7 @@ class ModelManager {
 
     ~ModelManager();
 
-    void load(std::string path);
+    void load(std::string path, glm::vec3 pos);
 
     void drawAll(ShaderProgram* shaderProgram);
 };

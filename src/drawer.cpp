@@ -46,7 +46,7 @@ void Drawer::draw() {
   // glDisable(GL_CULL_FACE);
   // shaderManager->shadowFramebufferRelease();
 
-  //lightManager->directionalLightsUpdateShadowTextures();
+  lightManager->directionalLightsUpdateShadowTextures();
 
   shaderManager->regular->use();
   shaderManager->renderMatrixDataProjection(camera->getProjectionMatrix());

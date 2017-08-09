@@ -30,4 +30,6 @@ src/managers \
 src/managers/lights \
 src/loader \
 src/light \
+resource/cube \
+resource/bowlingpin \
 

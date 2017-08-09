@@ -2,7 +2,8 @@
 
 #include "loader/model.h"
 
-Model::Model(std::string path) {
+Model::Model(std::string path, glm::vec3 pos) {
+	this->pos = pos;
 	Assimp::Importer importer;
 	const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate);
 	if (!scene || (scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE) || !scene->mRootNode) {
@@ -19,7 +20,7 @@ Model::~Model() {
 void Model::meshesSetup(const aiScene* scene) {
 	Mesh* mesh;
 	for (unsigned int i = 0; i < scene->mNumMeshes; i++) {
-		mesh = new Mesh(scene->mMeshes[i], scene->mMaterials[scene->mMeshes[i]->mMaterialIndex]);
+		mesh = new Mesh(scene->mMeshes[i], scene->mMaterials[scene->mMeshes[i]->mMaterialIndex], &pos);
 		meshes.push_back(mesh);
 	}
 }

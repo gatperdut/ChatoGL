@@ -16,7 +16,7 @@ void LightManager::pointLightsStorage() {
     glDeleteBuffers(1, &BBOpointLights);
   }
 
-  glGenBuffers(1, &BBOpointLights);
+  glCreateBuffers(1, &BBOpointLights);
   glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 2, BBOpointLights);
 
   glNamedBufferStorage(BBOpointLights, pointLights.size() * sizeof(PointLightData), NULL, GL_DYNAMIC_STORAGE_BIT);

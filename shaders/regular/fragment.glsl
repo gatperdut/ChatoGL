@@ -150,5 +150,7 @@ void main() {
     material.diffuse * vec4(diffuse, 1.0) + vec4(specular, 1.0),
     vec4(1.0)
   );
-
+  
+  //color = vec4(directionalLights[0].direction.y, 0.0, 0.0, 1.0);
+  
 }

@@ -7,14 +7,15 @@
 
 #include "loader/mesh.h"
 
-Mesh::Mesh(aiMesh* mMesh, aiMaterial* mMaterial) {
+Mesh::Mesh(aiMesh* mMesh, aiMaterial* mMaterial, glm::vec3* modelPos) {
 	this->mMaterial = mMaterial;
 	this->mMesh = mMesh;
+	this->modelPos = modelPos;
 
 	fillVertices();
 	fillIndices();
 
-	setup();
+	verticesSetup();
 	materialSetup();
 }
 
@@ -58,7 +59,7 @@ void Mesh::fillIndices() {
 	}
 }
 
-void Mesh::setup() {
+void Mesh::verticesSetup() {
 	glCreateVertexArrays(1, &VAO);
 	glCreateBuffers(1, &VBO);
 	glCreateBuffers(1, &EBO);
@@ -93,6 +94,7 @@ void Mesh::draw(ShaderProgram* shaderProgram) {
 	glBindVertexArray(VAO);
 
 	glm::mat4 modelMatrix;
+	modelMatrix = glm::translate(modelMatrix, *modelPos);
 	glUniformMatrix4fv(glGetUniformLocation(shaderProgram->id, "model"), 1, GL_FALSE, glm::value_ptr(modelMatrix));
 
 	glBindBufferBase(GL_UNIFORM_BUFFER, 0, materialUBO);
