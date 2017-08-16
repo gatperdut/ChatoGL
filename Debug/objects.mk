@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -lGLEW -lassimp -lglfw -lGL -lSOIL
+LIBS := -lGLEW -lassimp -lglfw -lGL -lSOIL -lBulletDynamics -lBulletCollision -lLinearMath
 

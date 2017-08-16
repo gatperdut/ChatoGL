@@ -4,6 +4,8 @@
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 
+#include <bullet/btBulletDynamicsCommon.h>
+
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
@@ -24,8 +26,10 @@ private:
 
 	std::vector<Material> materials;
 
+	btRigidBody *rigidBody;
+
 public:
-	Model(std::string path, glm::vec3 pos);
+	Model(std::string path, btRigidBody* rigidBody);
 	~Model();
 
 	void draw(ShaderProgram* shaderProgram);

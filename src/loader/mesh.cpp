@@ -7,10 +7,9 @@
 
 #include "loader/mesh.h"
 
-Mesh::Mesh(aiMesh* mMesh, aiMaterial* mMaterial, glm::vec3* modelPos) {
+Mesh::Mesh(aiMesh* mMesh, aiMaterial* mMaterial) {
 	this->mMaterial = mMaterial;
 	this->mMesh = mMesh;
-	this->modelPos = modelPos;
 
 	fillVertices();
 	fillIndices();
@@ -93,9 +92,9 @@ void Mesh::materialSetup() {
 void Mesh::draw(ShaderProgram* shaderProgram) {
 	glBindVertexArray(VAO);
 
-	glm::mat4 modelMatrix;
-	modelMatrix = glm::translate(modelMatrix, *modelPos);
-	glUniformMatrix4fv(glGetUniformLocation(shaderProgram->id, "model"), 1, GL_FALSE, glm::value_ptr(modelMatrix));
+//	glm::mat4 modelMatrix;
+//	modelMatrix = glm::translate(modelMatrix, *modelPos);
+//	glUniformMatrix4fv(glGetUniformLocation(shaderProgram->id, "model"), 1, GL_FALSE, glm::value_ptr(modelMatrix));
 
 	glBindBufferBase(GL_UNIFORM_BUFFER, 0, materialUBO);
 	// not needed for shadow shader

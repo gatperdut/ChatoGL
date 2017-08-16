@@ -38,7 +38,7 @@ private:
 
 
 public:
-	Mesh(aiMesh* mMesh, aiMaterial* mMaterial, glm::vec3* modelPos);
+	Mesh(aiMesh* mMesh, aiMaterial* mMaterial);
 	~Mesh();
 
 	void draw(ShaderProgram* shaderProgram);

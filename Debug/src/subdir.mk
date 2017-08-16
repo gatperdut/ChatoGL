@@ -10,6 +10,7 @@ CPP_SRCS += \
 ../src/keyboard.cpp \
 ../src/loop.cpp \
 ../src/mouse.cpp \
+../src/physics.cpp \
 ../src/popup.cpp \
 ../src/reader.cpp \
 ../src/skybox.cpp \
@@ -22,6 +23,7 @@ OBJS += \
 ./src/keyboard.o \
 ./src/loop.o \
 ./src/mouse.o \
+./src/physics.o \
 ./src/popup.o \
 ./src/reader.o \
 ./src/skybox.o \
@@ -34,6 +36,7 @@ CPP_DEPS += \
 ./src/keyboard.d \
 ./src/loop.d \
 ./src/mouse.d \
+./src/physics.d \
 ./src/popup.d \
 ./src/reader.d \
 ./src/skybox.d \
@@ -44,7 +47,7 @@ CPP_DEPS += \
 src/%.o: ../src/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross G++ Compiler'
-	g++ -std=c++0x -I"/home/gatperdut/dev/gl/workspace/ChatoGL/include" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
+	g++ -std=c++0x -I"/home/gatperdut/dev/gl/workspace/ChatoGL/include" -I/usr/local/include/bullet -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

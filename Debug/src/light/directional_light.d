@@ -18,6 +18,7 @@ src/light/directional_light.d: ../src/light/directional_light.cpp \
  /home/gatperdut/dev/gl/workspace/ChatoGL/include/shader/shader_program.h \
  /home/gatperdut/dev/gl/workspace/ChatoGL/include/skybox.h \
  /home/gatperdut/dev/gl/workspace/ChatoGL/include/drawer.h \
+ /home/gatperdut/dev/gl/workspace/ChatoGL/include/physics.h \
  /home/gatperdut/dev/gl/workspace/ChatoGL/include/error.h
 
 /home/gatperdut/dev/gl/workspace/ChatoGL/include/light/directional_light.h:
@@ -57,5 +58,7 @@ src/light/directional_light.d: ../src/light/directional_light.cpp \
 /home/gatperdut/dev/gl/workspace/ChatoGL/include/skybox.h:
 
 /home/gatperdut/dev/gl/workspace/ChatoGL/include/drawer.h:
+
+/home/gatperdut/dev/gl/workspace/ChatoGL/include/physics.h:
 
 /home/gatperdut/dev/gl/workspace/ChatoGL/include/error.h:

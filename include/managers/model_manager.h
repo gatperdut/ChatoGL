@@ -8,6 +8,8 @@
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 
+#include <bullet/btBulletDynamicsCommon.h>
+
 // ChatoGL
 #include "loader/model.h"
 #include "shader/shader_program.h"
@@ -21,7 +23,7 @@ class ModelManager {
 
     ~ModelManager();
 
-    void load(std::string path, glm::vec3 pos);
+    void load(std::string path, btRigidBody* rigidBody);
 
     void drawAll(ShaderProgram* shaderProgram);
 };

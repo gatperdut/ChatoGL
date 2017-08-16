@@ -17,7 +17,8 @@ src/light/spot_light.d: ../src/light/spot_light.cpp \
  /home/gatperdut/dev/gl/workspace/ChatoGL/include/camera.h \
  /home/gatperdut/dev/gl/workspace/ChatoGL/include/shader/shader_program.h \
  /home/gatperdut/dev/gl/workspace/ChatoGL/include/skybox.h \
- /home/gatperdut/dev/gl/workspace/ChatoGL/include/drawer.h
+ /home/gatperdut/dev/gl/workspace/ChatoGL/include/drawer.h \
+ /home/gatperdut/dev/gl/workspace/ChatoGL/include/physics.h
 
 /home/gatperdut/dev/gl/workspace/ChatoGL/include/light/spot_light.h:
 
@@ -56,3 +57,5 @@ src/light/spot_light.d: ../src/light/spot_light.cpp \
 /home/gatperdut/dev/gl/workspace/ChatoGL/include/skybox.h:
 
 /home/gatperdut/dev/gl/workspace/ChatoGL/include/drawer.h:
+
+/home/gatperdut/dev/gl/workspace/ChatoGL/include/physics.h:

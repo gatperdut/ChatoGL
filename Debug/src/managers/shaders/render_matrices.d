@@ -18,7 +18,8 @@ src/managers/shaders/render_matrices.d: \
  /home/gatperdut/dev/gl/workspace/ChatoGL/include/camera.h \
  /home/gatperdut/dev/gl/workspace/ChatoGL/include/shader/shader_program.h \
  /home/gatperdut/dev/gl/workspace/ChatoGL/include/skybox.h \
- /home/gatperdut/dev/gl/workspace/ChatoGL/include/drawer.h
+ /home/gatperdut/dev/gl/workspace/ChatoGL/include/drawer.h \
+ /home/gatperdut/dev/gl/workspace/ChatoGL/include/physics.h
 
 /home/gatperdut/dev/gl/workspace/ChatoGL/include/managers/shader_manager.h:
 
@@ -57,3 +58,5 @@ src/managers/shaders/render_matrices.d: \
 /home/gatperdut/dev/gl/workspace/ChatoGL/include/skybox.h:
 
 /home/gatperdut/dev/gl/workspace/ChatoGL/include/drawer.h:
+
+/home/gatperdut/dev/gl/workspace/ChatoGL/include/physics.h:

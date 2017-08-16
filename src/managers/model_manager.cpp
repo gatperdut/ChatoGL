@@ -13,8 +13,8 @@ ModelManager::~ModelManager() {
   }
 }
 
-void ModelManager::load(std::string path, glm::vec3 pos) {
-	Model* model = new Model(path, pos);
+void ModelManager::load(std::string path, btRigidBody* rigidBody) {
+	Model* model = new Model(path, rigidBody);
   models.push_back(model);
 }
 

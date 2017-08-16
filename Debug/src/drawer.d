@@ -5,6 +5,7 @@ src/drawer.d: ../src/drawer.cpp \
  /home/gatperdut/dev/gl/workspace/ChatoGL/include/shader/shader_object.h \
  /home/gatperdut/dev/gl/workspace/ChatoGL/include/skybox.h \
  /home/gatperdut/dev/gl/workspace/ChatoGL/include/drawer.h \
+ /home/gatperdut/dev/gl/workspace/ChatoGL/include/physics.h \
  /home/gatperdut/dev/gl/workspace/ChatoGL/include/drawer.h \
  /home/gatperdut/dev/gl/workspace/ChatoGL/include/managers/managers.h \
  /home/gatperdut/dev/gl/workspace/ChatoGL/include/managers/light_manager.h \
@@ -31,6 +32,8 @@ src/drawer.d: ../src/drawer.cpp \
 /home/gatperdut/dev/gl/workspace/ChatoGL/include/skybox.h:
 
 /home/gatperdut/dev/gl/workspace/ChatoGL/include/drawer.h:
+
+/home/gatperdut/dev/gl/workspace/ChatoGL/include/physics.h:
 
 /home/gatperdut/dev/gl/workspace/ChatoGL/include/drawer.h:
 

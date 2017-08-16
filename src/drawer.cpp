@@ -27,6 +27,8 @@ Drawer::~Drawer() {
 }
 
 void Drawer::draw() {
+	physics->dynamicsWorld->stepSimulation(1 / 60.f, 10);
+
   shaderManager->renderMatrixDataView(camera->getViewMatrix());
 
   skybox->draw();

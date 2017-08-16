@@ -30,6 +30,7 @@
 								<option id="gnu.cpp.compiler.option.debugging.level.760382288" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.1563581444" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/include}&quot;"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/bullet"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.dialect.std.70654218" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.cpp.compiler.dialect.c++11" valueType="enumerated"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.2099603317" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
@@ -42,6 +43,9 @@
 									<listOptionValue builtIn="false" value="glfw"/>
 									<listOptionValue builtIn="false" value="GL"/>
 									<listOptionValue builtIn="false" value="SOIL"/>
+									<listOptionValue builtIn="false" value="BulletDynamics"/>
+									<listOptionValue builtIn="false" value="BulletCollision"/>
+									<listOptionValue builtIn="false" value="LinearMath"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1594071292" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>

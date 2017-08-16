@@ -9,7 +9,8 @@ src/loop.d: ../src/loop.cpp \
  /home/gatperdut/dev/gl/workspace/ChatoGL/include/error.h \
  /home/gatperdut/dev/gl/workspace/ChatoGL/include/popup.h \
  /home/gatperdut/dev/gl/workspace/ChatoGL/include/skybox.h \
- /home/gatperdut/dev/gl/workspace/ChatoGL/include/drawer.h
+ /home/gatperdut/dev/gl/workspace/ChatoGL/include/drawer.h \
+ /home/gatperdut/dev/gl/workspace/ChatoGL/include/physics.h
 
 /home/gatperdut/dev/gl/workspace/ChatoGL/include/loop.h:
 
@@ -32,3 +33,5 @@ src/loop.d: ../src/loop.cpp \
 /home/gatperdut/dev/gl/workspace/ChatoGL/include/skybox.h:
 
 /home/gatperdut/dev/gl/workspace/ChatoGL/include/drawer.h:
+
+/home/gatperdut/dev/gl/workspace/ChatoGL/include/physics.h:
