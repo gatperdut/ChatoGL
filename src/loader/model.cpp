@@ -5,35 +5,42 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 #include "loader/model.h"
+#include "popup.h"
 
-Model::Model(std::string path, btRigidBody* rigidBody) {
-	this->pos = pos;
-	this->rigidBody = rigidBody;
-	Assimp::Importer importer;
-	const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate);
-	if (!scene || (scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE) || !scene->mRootNode) {
-		std::cout << "ERROR::ASSIMP:: " << importer.GetErrorString() << std::endl;
-		return;
-	}
-	meshesSetup(scene);
-
+Model::Model(std::string modelPath, std::string collisionPath, btVector3 pos, btScalar mass) {
+	modelMeshesSetup(modelPath);
+	collisionMeshSetup(collisionPath, pos, mass);
 }
 
 Model::~Model() {
 }
 
-void Model::meshesSetup(const aiScene* scene) {
-	Mesh* mesh;
-	for (unsigned int i = 0; i < scene->mNumMeshes; i++) {
-		mesh = new Mesh(scene->mMeshes[i], scene->mMaterials[scene->mMeshes[i]->mMaterialIndex]);
-		meshes.push_back(mesh);
+const aiScene* Model::load(std::string path) {
+	const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate);
+	if (!scene || (scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE) || !scene->mRootNode) {
+		std::cerr << "ERROR::ASSIMP:: " << importer.GetErrorString() << std::endl;
 	}
+	return scene;
+}
+
+void Model::modelMeshesSetup(std::string modelPath) {
+	const aiScene* scene = load(modelPath);
+	ModelMesh* mesh;
+	for (unsigned int i = 0; i < scene->mNumMeshes; i++) {
+		mesh = new ModelMesh(scene->mMeshes[i], scene->mMaterials[scene->mMeshes[i]->mMaterialIndex]);
+		modelMeshes.push_back(mesh);
+	}
+}
+
+void Model::collisionMeshSetup(std::string collisionPath, btVector3 pos, btScalar mass) {
+	const aiScene* scene = load(collisionPath);
+	collisionMesh = new CollisionMesh(scene->mMeshes[0], pos, mass);
 }
 
 void Model::draw(ShaderProgram* shaderProgram) {
 	glm::mat4 modelMatrix;
 	btTransform transform;
-	rigidBody->getMotionState()->getWorldTransform(transform);
+	collisionMesh->rigidBody->getMotionState()->getWorldTransform(transform);
 	btVector3 translation = transform.getOrigin();
 	btQuaternion rotation = transform.getRotation();
 
@@ -44,8 +51,8 @@ void Model::draw(ShaderProgram* shaderProgram) {
 
 	glUniformMatrix4fv(glGetUniformLocation(shaderProgram->id, "model"), 1, GL_FALSE, glm::value_ptr(modelMatrix));
 
-	std::vector<Mesh*>::iterator iter;
-	for (iter = meshes.begin(); iter != meshes.end(); iter++) {
+	std::vector<ModelMesh*>::iterator iter;
+	for (iter = modelMeshes.begin(); iter != modelMeshes.end(); iter++) {
 		(*iter)->draw(shaderProgram);
 	}
 }

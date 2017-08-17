@@ -23,7 +23,7 @@ class ModelManager {
 
     ~ModelManager();
 
-    void load(std::string path, btRigidBody* rigidBody);
+    void load(std::string modelPath, std::string collisionPath, btVector3 pos, btScalar mass);
 
     void drawAll(ShaderProgram* shaderProgram);
 };

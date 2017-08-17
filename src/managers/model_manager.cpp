@@ -13,8 +13,8 @@ ModelManager::~ModelManager() {
   }
 }
 
-void ModelManager::load(std::string path, btRigidBody* rigidBody) {
-	Model* model = new Model(path, rigidBody);
+void ModelManager::load(std::string modelPath, std::string collisionPath, btVector3 pos, btScalar mass) {
+	Model* model = new Model(modelPath, collisionPath, pos, mass);
   models.push_back(model);
 }
 

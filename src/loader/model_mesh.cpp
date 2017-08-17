@@ -5,9 +5,9 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-#include "loader/mesh.h"
+#include "loader/model_mesh.h"
 
-Mesh::Mesh(aiMesh* mMesh, aiMaterial* mMaterial) {
+ModelMesh::ModelMesh(aiMesh* mMesh, aiMaterial* mMaterial) {
 	this->mMaterial = mMaterial;
 	this->mMesh = mMesh;
 
@@ -18,10 +18,10 @@ Mesh::Mesh(aiMesh* mMesh, aiMaterial* mMaterial) {
 	materialSetup();
 }
 
-Mesh::~Mesh() {
+ModelMesh::~ModelMesh() {
 }
 
-void Mesh::fillVertices() {
+void ModelMesh::fillVertices() {
 	aiVector3D mVertex;
 	aiVector3D mNormal;
 
@@ -48,7 +48,7 @@ void Mesh::fillVertices() {
 	}
 }
 
-void Mesh::fillIndices() {
+void ModelMesh::fillIndices() {
 	aiFace mFace;
 	for (unsigned int i = 0; i < mMesh->mNumFaces; i++) {
 		mFace = mMesh->mFaces[i];
@@ -58,7 +58,7 @@ void Mesh::fillIndices() {
 	}
 }
 
-void Mesh::verticesSetup() {
+void ModelMesh::verticesSetup() {
 	glCreateVertexArrays(1, &VAO);
 	glCreateBuffers(1, &VBO);
 	glCreateBuffers(1, &EBO);
@@ -80,7 +80,7 @@ void Mesh::verticesSetup() {
 	glBindVertexArray(0);
 }
 
-void Mesh::materialSetup() {
+void ModelMesh::materialSetup() {
 	aiColor3D diffuse;
 	mMaterial->Get(AI_MATKEY_COLOR_DIFFUSE, diffuse);
 	material.diffuse = glm::vec4(diffuse.r, diffuse.g, diffuse.b, 1.0);
@@ -89,7 +89,7 @@ void Mesh::materialSetup() {
 	glNamedBufferStorage(materialUBO, sizeof(Material), &material, GL_DYNAMIC_STORAGE_BIT);
 }
 
-void Mesh::draw(ShaderProgram* shaderProgram) {
+void ModelMesh::draw(ShaderProgram* shaderProgram) {
 	glBindVertexArray(VAO);
 
 //	glm::mat4 modelMatrix;

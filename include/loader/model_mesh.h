@@ -1,5 +1,5 @@
-#ifndef MESH_H_
-#define MESH_H_
+#ifndef MODEL_MESH_H
+#define MODEL_MESH_H
 
 #include <GL/glew.h>
 #include <glm/glm.hpp>
@@ -14,7 +14,7 @@
 #include "loader/material.h"
 #include "shader/shader_program.h"
 
-class Mesh {
+class ModelMesh {
 private:
 	glm::vec3* modelPos;
 
@@ -38,8 +38,8 @@ private:
 
 
 public:
-	Mesh(aiMesh* mMesh, aiMaterial* mMaterial);
-	~Mesh();
+	ModelMesh(aiMesh* mMesh, aiMaterial* mMaterial);
+	~ModelMesh();
 
 	void draw(ShaderProgram* shaderProgram);
 

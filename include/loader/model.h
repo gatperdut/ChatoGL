@@ -4,32 +4,33 @@
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 
-#include <bullet/btBulletDynamicsCommon.h>
-
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
-#include "loader/mesh.h"
+#include "loader/model_mesh.h"
+#include "loader/collision_mesh.h"
 #include "loader/material.h"
 #include "shader/shader_program.h"
 
 class Model {
 private:
-	std::vector<Mesh*> meshes;
+	Assimp::Importer importer;
 
-	glm::vec3 pos;
+	std::vector<ModelMesh*> modelMeshes;
+	CollisionMesh* collisionMesh;
 
 	GLuint materialsSSDO;
 
-	void meshesSetup(const aiScene* scene);
+	const aiScene* load(std::string path);
+
+	void modelMeshesSetup(std::string modelPath);
+	void collisionMeshSetup(std::string collisionPath, btVector3 pos, btScalar mass);
 
 	std::vector<Material> materials;
 
-	btRigidBody *rigidBody;
-
 public:
-	Model(std::string path, btRigidBody* rigidBody);
+	Model(std::string modelPath, std::string collisionPath, btVector3 pos, btScalar mass);
 	~Model();
 
 	void draw(ShaderProgram* shaderProgram);

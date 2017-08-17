@@ -4,16 +4,19 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/loader/mesh.cpp \
-../src/loader/model.cpp 
+../src/loader/collision_mesh.cpp \
+../src/loader/model.cpp \
+../src/loader/model_mesh.cpp 
 
 OBJS += \
-./src/loader/mesh.o \
-./src/loader/model.o 
+./src/loader/collision_mesh.o \
+./src/loader/model.o \
+./src/loader/model_mesh.o 
 
 CPP_DEPS += \
-./src/loader/mesh.d \
-./src/loader/model.d 
+./src/loader/collision_mesh.d \
+./src/loader/model.d \
+./src/loader/model_mesh.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

@@ -38,7 +38,7 @@ int main() {
 	}
 	std::cout << "OpenGL version " << glGetString(GL_VERSION) << std::endl;
 
-	camera = new cam::Camera(glm::vec3(0.0f, 3.0f, 7.0f), w, h);
+	camera = new cam::Camera(glm::vec3(0.0f, 3.0f, 13.0f), w, h);
 
 	// shaders
 	shaderManager = new ShaderManager();
@@ -62,24 +62,16 @@ int main() {
 
 	physics = new Physics();
 
-	// GROUND
-	btCollisionShape* groundShape = new btStaticPlaneShape(btVector3(0, 1, 0), 0.959);
-	btDefaultMotionState* groundMotionState = new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, -.24, 0)));
-	btRigidBody::btRigidBodyConstructionInfo groundRigidBodyCI(0, groundMotionState, groundShape, btVector3(0, 0, 0));
-	btRigidBody* groundRigidBody = new btRigidBody(groundRigidBodyCI);
-	physics->dynamicsWorld->addRigidBody(groundRigidBody);
-	modelManager->load("resource/cube/cube.obj", groundRigidBody);
+	modelManager->load("resource/cube/cube.obj", "resource/cube/cube.obj", btVector3(0, 0, 0), 0);
 
-	// BOWLING PIN
-	btCollisionShape* fallShape = new btBoxShape(btVector3(0.24, 0.78, 0.24));
-	btDefaultMotionState* fallMotionState = new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, 15, 0)));
-	btScalar mass = 1;
-	btVector3 fallInertia(0, 0, 0);
-	fallShape->calculateLocalInertia(mass, fallInertia);
-	btRigidBody::btRigidBodyConstructionInfo fallRigidBodyCI(mass, fallMotionState, fallShape, fallInertia);
-	btRigidBody* fallRigidBody = new btRigidBody(fallRigidBodyCI);
-	physics->dynamicsWorld->addRigidBody(fallRigidBody);
-	modelManager->load("resource/bowlingpin/bowlingpin.obj", fallRigidBody);
+	modelManager->load("resource/bowlingpin/bowlingpin.obj", "resource/bowlingpin/bowlingpincollider.obj", btVector3(2, 5, 0), 10);
+	modelManager->load("resource/bowlingpin/bowlingpin.obj", "resource/bowlingpin/bowlingpincollider.obj", btVector3(-1, 10, 0), 10);
+	modelManager->load("resource/bowlingpin/bowlingpin.obj", "resource/bowlingpin/bowlingpincollider.obj", btVector3(2, 15, 2), 10);
+	modelManager->load("resource/bowlingpin/bowlingpin.obj", "resource/bowlingpin/bowlingpincollider.obj", btVector3(2, 25, -1), 10);
+	modelManager->load("resource/bowlingpin/bowlingpin.obj", "resource/bowlingpin/bowlingpincollider.obj", btVector3(1, 50, 1), 10);
+	modelManager->load("resource/bowlingpin/bowlingpin.obj", "resource/bowlingpin/bowlingpincollider.obj", btVector3(3, 100, 2), 10);
+	modelManager->load("resource/bowlingpin/bowlingpin.obj", "resource/bowlingpin/bowlingpincollider.obj", btVector3(-3, 250, -1.5), 10);
+	modelManager->load("resource/bowlingpin/bowlingpin.obj", "resource/bowlingpin/bowlingpincollider.obj", btVector3(-2, 300, -2), 10);
 
 	// io
 	Keyboard keyboard(camera);

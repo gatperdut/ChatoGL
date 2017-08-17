@@ -7,7 +7,7 @@ Physics::Physics() {
 	solver = new btSequentialImpulseConstraintSolver;
 
 	dynamicsWorld = new btDiscreteDynamicsWorld(dispatcher, broadphase, solver, collisionConfiguration);
-	dynamicsWorld->setGravity(btVector3(0, -0.4, 0));
+	dynamicsWorld->setGravity(btVector3(0, -5.0, 0));
 
 }
 
