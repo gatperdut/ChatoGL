@@ -32,4 +32,5 @@ src/loader \
 src/light \
 resource/cube \
 resource/bowlingpin \
+resource/bowlingball \
 

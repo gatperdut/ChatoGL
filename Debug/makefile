@@ -17,6 +17,7 @@ RM := rm -rf
 -include src/subdir.mk
 -include resource/cube/subdir.mk
 -include resource/bowlingpin/subdir.mk
+-include resource/bowlingball/subdir.mk
 -include subdir.mk
 -include objects.mk
 

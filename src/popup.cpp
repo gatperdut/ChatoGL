@@ -73,6 +73,11 @@ int main() {
 	modelManager->load("resource/bowlingpin/bowlingpin.obj", "resource/bowlingpin/bowlingpincollider.obj", btVector3(-3, 250, -1.5), 10);
 	modelManager->load("resource/bowlingpin/bowlingpin.obj", "resource/bowlingpin/bowlingpincollider.obj", btVector3(-2, 300, -2), 10);
 
+	modelManager->load("resource/cube/cube.obj", "resource/cube/cube.obj", btVector3(-5.5, 400, 0), 100);
+	modelManager->load("resource/bowlingpin/bowlingpin.obj", "resource/bowlingpin/bowlingpincollider.obj", btVector3(-13, 550, 0), 30);
+
+	modelManager->load("resource/bowlingball/bowlingball.obj", "resource/bowlingball/bowlingball.obj", btVector3(7, 5, 0), 10);
+
 	// io
 	Keyboard keyboard(camera);
 	Mouse mouse(camera);
