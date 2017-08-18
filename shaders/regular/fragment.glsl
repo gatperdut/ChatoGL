@@ -65,8 +65,8 @@ mat4 shadowMatrixBias = mat4(
 );
 
 void main() {
-  vec3 diffuse = vec3(0.0);
-  vec3 specular = vec3(0.0);
+  vec3 diffuse = vec3(0.1);
+  vec3 specular = vec3(0.1);
 
   DirectionalLight dlight;
   for (int i = 0; i < directionalLights.length(); i++) {

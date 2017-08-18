@@ -15,6 +15,7 @@ RM := rm -rf
 -include src/loader/subdir.mk
 -include src/light/subdir.mk
 -include src/subdir.mk
+-include resource/reversecube/subdir.mk
 -include resource/cube/subdir.mk
 -include resource/bowlingpin/subdir.mk
 -include resource/bowlingball/subdir.mk
