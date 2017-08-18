@@ -38,7 +38,7 @@ int main() {
 	}
 	std::cout << "OpenGL version " << glGetString(GL_VERSION) << std::endl;
 
-	camera = new cam::Camera(glm::vec3(0.0f, 3.0f, 10.0f), w, h);
+	camera = new cam::Camera(glm::vec3(0.0f, 3.0f,  10.0f), w, h);
 
 	// shaders
 	shaderManager = new ShaderManager();
@@ -58,7 +58,7 @@ int main() {
 	//"resource/cross.png"
 			"resource/terrain.jpg" };
 
-	//lightManager->directionalLightAdd(glm::vec3(0.1f, 7.0f, 1.0f), 0.7);
+	//lightManager->directionalLightAdd(glm::vec3(0.1f, 8.0f, 0.0f), 0.7);
 	lightManager->pointLightAdd(glm::vec3(1.0, 1.5, 1.0), 1.0);
 
 	physics = new Physics();

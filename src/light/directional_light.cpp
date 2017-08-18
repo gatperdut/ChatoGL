@@ -24,7 +24,7 @@ DirectionalLight::DirectionalLight(glm::vec3 direction, float intensity) {
   data.shininess = 32;
 
   data.projectionMatrix = glm::ortho(-20.0f, 20.0f, -20.0f, 20.0f, 1.0f, 100.0f);
-  data.viewMatrix = glm::lookAt(data.direction, glm::vec3(-2.0f), glm::vec3(0.0f, 1.0, 0.0));
+  data.viewMatrix = glm::lookAt(data.direction, glm::vec3(0.0f, -3.0, 0.0), glm::vec3(0.0f, 1.0, 0.0));
 
   shadowTextureStorage();
 

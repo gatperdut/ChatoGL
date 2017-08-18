@@ -14,7 +14,7 @@ bool Keyboard::keys[1024] = { false };
 void Keyboard::callback(GLFWwindow* window, int key, int scancode, int action, int mode) {
   if (key == GLFW_KEY_SPACE && action == GLFW_PRESS) {
     //lightManager->pointLightAdd(glm::vec3(1.0, 1.5, 1.0), 1.0);
-    //lightManager->directionalLightAdd(glm::vec3(-5.0f, 5.0f, 0.0f), 0.7);
+  	lightManager->directionalLightAdd(glm::vec3(0.1f, 8.0f, 0.0f), 0.7);
   }
   if (key == GLFW_KEY_BACKSPACE && action == GLFW_PRESS) {
     lightManager->pointLightRemove(-1);
